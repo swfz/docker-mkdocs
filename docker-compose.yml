@@ -1,0 +1,23 @@
+nginx:
+  build: ./nginx
+  links:
+    - mkdocs
+    - elasticsearch
+  ports:
+    - "80:80"
+    - "443:443"
+
+mkdocs:
+  build: ./mkdocs
+  command: serve -a 0.0.0.0:8000
+  ports:
+    - "8000:8000"
+  volumes:
+    - ./mkdocs/sample:/docs/sample
+
+elasticsearch:
+  build: ./elasticsearch
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+

@@ -1,0 +1,5 @@
+site_name: My Docs
+#theme: readable
+theme_dir: custom
+pages:
+- index: index.md
