@@ -2,6 +2,7 @@ nginx:
   build: ./nginx
   links:
     - mkdocs
+    - reveal
     - elasticsearch
   ports:
     - "80:80"
@@ -14,6 +15,14 @@ mkdocs:
     - "8000:8000"
   links:
     - elasticsearch
+  volumes:
+    - ./mkdocs/sample:/docs/sample
+
+reveal:
+  build: ./mkdocs
+  command: reveal sample docs/sample.md 
+  ports:
+    - "8001:8001"
   volumes:
     - ./mkdocs/sample:/docs/sample
 

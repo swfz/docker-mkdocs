@@ -17,15 +17,15 @@ RUN pip install mkdocs
 
 COPY entrypoint.sh /entrypoint.sh
 COPY md2es.sh /md2es.sh
+COPY reveal.sh /reveal.sh
 
 WORKDIR /docs/sample
 
 VOLUME /docs/sample
 
-EXPOSE 8000
+EXPOSE 8000 8001
 
 ENTRYPOINT ["bash", "/entrypoint.sh"]
-#ENTRYPOINT ["mkdocs"]
 
 CMD ["-h"]
 

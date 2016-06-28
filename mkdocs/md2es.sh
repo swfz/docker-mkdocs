@@ -4,7 +4,7 @@ ES_URL='http://elasticsearch:9200'
 PROJECT=${1:-sample}
 INDICES="mkdocs_$PROJECT"
 
-DIR=$(dirname $0)
+DIR="/docs/$PROJECT"
 
 post2es() {
   file=$1
@@ -14,7 +14,6 @@ post2es() {
   location=$(echo ${file} | sed -e 's/.\+\/docs//' -e 's/\.md//')
 
   echo $file
-  echo $location
 
   curl -XPOST "${ES_URL}/${INDICES}/data/" -d "$( jo text="${text}" title="${title}" heading="${heading}" location="${location}" )"
 }
