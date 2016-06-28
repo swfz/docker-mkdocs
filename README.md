@@ -1,5 +1,15 @@
 # MkDocs + Elasticsearch + Reveal.js in Docker
 
+## Prepare
+
+- `/etc/hosts` in Host Machine
+
+IP is VM's IP or localhost
+
+```
+192.168.30.93 docker-local-elasticsearch
+```
+
 ## up
 
 ```
