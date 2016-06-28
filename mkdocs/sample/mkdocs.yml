@@ -1,5 +1,6 @@
 site_name: My Docs
-#theme: readable
+site_description: mkdocsに日本語全文検索機能を追加したサンプル
 theme_dir: custom
 pages:
-- index: index.md
+  - index: index.md
+  - sample: sample.md

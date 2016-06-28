@@ -12,6 +12,13 @@ function getSearchTerm()
     }
 }
 
+function loadElasticsearchJs(){
+  var scriptElement = document.createElement('script');
+  scriptElement.setAttribute('data-main', base_url + "/js/search.js");
+  scriptElement.src = base_url + "/mkdocs/js/require.js";
+  document.body.appendChild(scriptElement);
+}
+
 $(document).ready(function() {
 
     var search_term = getSearchTerm(),
@@ -23,6 +30,7 @@ $(document).ready(function() {
 
     // make sure search input gets autofocus everytime modal opens.
     $search_modal.on('shown.bs.modal', function () {
+        loadElasticsearchJs();
         $search_modal.find('#mkdocs-search-query').focus();
     });
 
