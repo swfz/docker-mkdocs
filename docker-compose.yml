@@ -12,6 +12,8 @@ mkdocs:
   command: serve -a 0.0.0.0:8000
   ports:
     - "8000:8000"
+  links:
+    - elasticsearch
   volumes:
     - ./mkdocs/sample:/docs/sample
 

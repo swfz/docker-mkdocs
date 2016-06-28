@@ -30,7 +30,7 @@ require([
     }
     function searchFromEs(query){
       var request = client.search({
-        index: 'docs',
+        index: 'mkdocs_sample',
         body: {
           "query": {
             "multi_match": {
