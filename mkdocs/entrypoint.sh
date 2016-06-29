@@ -28,6 +28,9 @@ case "$1" in
     file=$4
     exec /bin/bash -c "/reveal.sh ${cmd} ${project} ${file}"
     ;;
+  cron)
+    /usr/sbin/crond -n
+    ;;
   usage)
     _usage
     exit 1

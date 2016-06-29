@@ -26,9 +26,19 @@ reveal:
   volumes:
     - ./mkdocs/sample:/docs/sample
 
+cron:
+  build: ./mkdocs
+  command: cron
+  links:
+    - elasticsearch
+  volumes:
+    - ./mkdocs/sample:/docs/sample
+
 elasticsearch:
   build: ./elasticsearch
   ports:
     - "9200:9200"
     - "9300:9300"
+
+
 

@@ -15,7 +15,7 @@ post2es() {
 
   echo $file
 
-  curl -XPOST "${ES_URL}/${INDICES}/data/" -d "$( jo text="${text}" title="${title}" heading="${heading}" location="${location}" )"
+  curl -XPOST "${ES_URL}/${INDICES}/data/" -d "$( /usr/local/bin/jo text="${text}" title="${title}" heading="${heading}" location="${location}" )"
 }
 
 delete_indices(){
