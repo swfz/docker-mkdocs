@@ -48,7 +48,6 @@ require([
 
       var search_results = document.getElementById("mkdocs-search-results");
       request.then(function(res){
-        console.dir(res);
         var results = res.hits.hits;
         if (results.length > 0){
             for (var i=0; i < results.length; i++){

@@ -20,7 +20,7 @@ mkdocs:
 
 reveal:
   build: ./mkdocs
-  command: reveal sample docs/sample.md 
+  command: reveal start sample docs/sample.md 
   ports:
     - "8001:8001"
   volumes:

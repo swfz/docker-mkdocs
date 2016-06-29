@@ -2,7 +2,7 @@ FROM centos:centos7
 
 MAINTAINER swfz <sawafuji.09@gmail.com>
 
-RUN yum install -y python-setuptools gcc openssl-devel curl-devel make
+RUN yum install -y python-setuptools gcc openssl-devel curl-devel make git
 
 # using markdown to elasticsearh script
 RUN curl -LO https://github.com/jpmens/jo/releases/download/v1.0/jo-1.0.tar.gz && \

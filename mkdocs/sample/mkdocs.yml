@@ -4,3 +4,5 @@ theme_dir: custom
 pages:
   - index: index.md
   - sample: sample.md
+  - subdirectory:
+    - 'reveal.js sample': 'subdir/revealjs_sample.md'
