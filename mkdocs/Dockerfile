@@ -2,6 +2,8 @@ FROM centos:centos7
 
 MAINTAINER swfz <sawafuji.09@gmail.com>
 
+# ARG project
+
 RUN yum install -y python-setuptools gcc openssl-devel curl-devel make git crontabs
 
 # using markdown to elasticsearh script
@@ -14,14 +16,17 @@ RUN curl -LO https://github.com/jpmens/jo/releases/download/v1.0/jo-1.0.tar.gz &
 
 RUN easy_install pip
 RUN pip install mkdocs
-RUN echo '*/30 * * * * root exec /md2es.sh sample' >> /etc/crontab
+#RUN echo '*/30 * * * * root exec /md2es.sh ${project:-sample}' >> /etc/crontab
+RUN echo '*/1 * * * * root exec /md2es.sh sample' >> /etc/crontab
 
 COPY entrypoint.sh /entrypoint.sh
 COPY md2es.sh /md2es.sh
 COPY reveal.sh /reveal.sh
 
-WORKDIR /docs/sample
+#WORKDIR /docs/${project:-sample}
+#VOLUME /docs/${project:-sample}
 
+WORKDIR /docs/sample
 VOLUME /docs/sample
 
 EXPOSE 8000 8001

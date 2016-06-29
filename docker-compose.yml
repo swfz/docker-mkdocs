@@ -1,44 +1,72 @@
-nginx:
-  build: ./nginx
-  links:
-    - mkdocs
-    - reveal
-    - elasticsearch
-  ports:
-    - "80:80"
-    - "443:443"
+version: '2'
+services:
+#  data:
+#    container_name: data
+#    image: busybox
+#    volumes:
+#      - /data/docker_mkdocs/nginx:/var/log/nginx
+#      - /data/docker_mkdocs/elasticsearch/log:/var/log/elasticsearch
+#      - /data/docker_mkdocs/elasticsearch/data:/var/lib/elasticsearch
 
-mkdocs:
-  build: ./mkdocs
-  command: serve -a 0.0.0.0:8000
-  ports:
-    - "8000:8000"
-  links:
-    - elasticsearch
-  volumes:
-    - ./mkdocs/sample:/docs/sample
-
-reveal:
-  build: ./mkdocs
-  command: reveal start sample docs/sample.md 
-  ports:
-    - "8001:8001"
-  volumes:
-    - ./mkdocs/sample:/docs/sample
-
-cron:
-  build: ./mkdocs
-  command: cron
-  links:
-    - elasticsearch
-  volumes:
-    - ./mkdocs/sample:/docs/sample
-
-elasticsearch:
-  build: ./elasticsearch
-  ports:
-    - "9200:9200"
-    - "9300:9300"
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    links:
+      - mkdocs
+      - reveal
+      - elasticsearch
+    ports:
+      - "80:80"
+      - "443:443"
+  
+  mkdocs:
+    container_name: mkdocs
+    build:
+      context: ./mkdocs
+#      args:
+#        project: sample
+    command: serve -a 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    links:
+      - elasticsearch
+    volumes:
+#      - ./mkdocs/$project:/docs/$project
+      - ./mkdocs/sample:/docs/sample
+  
+  reveal:
+    container_name: reveal
+    build:
+      context: ./mkdocs
+#      args:
+#        project: sample
+#    command: reveal start ${project} docs/${project}.md 
+    command: reveal start sample docs/sample.md 
+    ports:
+      - "8001:8001"
+    volumes:
+#      - ./mkdocs/$project:/docs/$project
+      - ./mkdocs/sample:/docs/sample
+  
+  cron:
+    container_name: cron
+    build:
+      context: ./mkdocs
+#      args:
+#        project: sample
+    command: cron
+    links:
+      - elasticsearch
+    volumes:
+#      - ./mkdocs/$project:/docs/$project
+      - ./mkdocs/sample:/docs/sample
+  
+  elasticsearch:
+    container_name: elasticsearch
+    build: ./elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
 
 
 
