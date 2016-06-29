@@ -1,0 +1,49 @@
+.reveal .slides {
+  text-align: initial;
+}
+.reveal strong {
+  display: block;
+  font-size: 5em;
+  text-align: center;
+  vertical-align: middle;
+  color: #ccc;
+}
+.reveal h1 {
+  text-align: center;
+  text-transform: initial;
+}
+.reveal h2 {
+  text-transform: initial;
+}
+.reveal h3 {
+  text-transform: initial;
+}
+.reveal img {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+.reveal ul {
+  text-align: left;
+}
+
+/* コントロールの色 左右 */
+.reveal .controls .navigate-right, .reveal .controls .navigate-right.enabled {
+  border-left-color: #d33682;
+}
+.reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled {
+  border-right-color: #d33682;
+}
+/* コントロールの色 上下 */
+.reveal .controls .navigate-up, .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #d33682;
+}
+.reveal .controls .navigate-down, .reveal .controls .navigate-down.enabled {
+  border-top-color: #d33682;
+}
+/* プログレスバー */
+.reveal .progress span {
+  background: #d33682;
+}
+
+
