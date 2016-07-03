@@ -1,13 +1,13 @@
 require([
     base_url + '/mkdocs/js/mustache.min.js',
     base_url + '/js/elasticsearch.jquery.js',
+    base_url + '/js/config.js',
     'text!search-results-template.mustache',
-], function (Mustache, elasticsearch, results_template) {
+], function (Mustache, elasticsearch, config, results_template) {
    "use strict";
 
-   var esEndpoint = 'docker-local-elasticsearch';
    var client = new $.es.Client({
-     host: esEndpoint,
+     host: config.esEndpoint,
      headers: {
        'Accept': 'application/json',
        'Content-Type': 'application/json'

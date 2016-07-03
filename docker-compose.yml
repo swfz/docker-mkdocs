@@ -1,13 +1,5 @@
 version: '2'
 services:
-#  data:
-#    container_name: data
-#    image: busybox
-#    volumes:
-#      - /data/docker_mkdocs/nginx:/var/log/nginx
-#      - /data/docker_mkdocs/elasticsearch/log:/var/log/elasticsearch
-#      - /data/docker_mkdocs/elasticsearch/data:/var/lib/elasticsearch
-
   nginx:
     container_name: nginx
     build: ./nginx
@@ -25,6 +17,8 @@ services:
       context: ./mkdocs
 #      args:
 #        project: sample
+    environment:
+      - ES_ENDPOINT=192.168.100.12
     command: serve -a 0.0.0.0:8000
     ports:
       - "8000:8000"

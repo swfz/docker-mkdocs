@@ -1,7 +1,8 @@
 FROM nginx
 MAINTAINER swfz <sawafuji.09@gmail.com>
 
-COPY ["./mkdocs.conf", "/etc/nginx/conf.d/mkdocs.conf"]
-COPY ["./elasticsearch.conf", "/etc/nginx/conf.d/elasticsearch.conf"]
+COPY ["./nginx.conf", "/etc/nginx/nginx.conf"]
+
+RUN rm /etc/nginx/conf.d/default.conf
 
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
