@@ -4,22 +4,12 @@
 - docker1.10
 - docker-compose 1.7.1
 
-## Prepare
-
-- `/etc/hosts` in Host Machine
-
-IP is VM's IP or localhost
-
-- e.g)
-
-```
-192.168.30.93 docker-local-elasticsearch
-```
-
 ## up
 
 ```
 docker-compose up [-d]
+or
+HOST_IP=`hostname -I | awk '{print $2}'` docker-compose up [-d]
 ```
 
 ### Containers

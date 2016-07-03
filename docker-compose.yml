@@ -18,7 +18,9 @@ services:
 #      args:
 #        project: sample
     environment:
-      - ES_ENDPOINT=192.168.100.12
+#      Direct Write Endpoint IP or pass through the run-time env variable
+#      - ES_ENDPOINT=192.168.100.12
+      - ES_ENDPOINT=${HOST_IP}
     command: serve -a 0.0.0.0:8000
     ports:
       - "8000:8000"
