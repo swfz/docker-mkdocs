@@ -25,7 +25,7 @@ RUN curl -LO https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_
 RUN easy_install pip
 RUN pip install mkdocs
 #RUN echo '*/30 * * * * root exec /md2es.sh ${project:-sample}' >> /etc/crontab
-RUN echo '*/1 * * * * root exec /md2es.sh sample' >> /etc/crontab
+RUN echo '*/10 * * * * root exec /md2es.sh sample' >> /etc/crontab
 
 COPY entrypoint.sh /entrypoint.sh
 COPY md2es.sh /md2es.sh
