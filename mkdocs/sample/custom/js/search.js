@@ -32,14 +32,12 @@ require([
       var request = client.search({
         index: 'mkdocs_sample',
         body: {
-          "query": {
-            "multi_match": {
-              "query": query,
-              "type": "cross_fields",
-              "fields": [
-                "title^5",
-                "heading^4",
-                "text^3"
+          query: {
+            bool: {
+              should: [
+                { "match": { "title":   { "query": query, "boost": 5 } } },
+                { "match": { "heading": { "query": query, "boost": 4 } } },
+                { "match": { "text":    { "query": query, "boost": 3 } } }
               ]
             }
           }
