@@ -10,7 +10,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-  
+
   mkdocs:
     container_name: mkdocs
     build:
@@ -29,21 +29,21 @@ services:
     volumes:
 #      - ./mkdocs/$project:/docs/$project
       - ./mkdocs/sample:/docs/sample
-  
+
   reveal:
     container_name: reveal
     build:
       context: ./mkdocs
 #      args:
 #        project: sample
-#    command: reveal start ${project} docs/${project}.md 
-    command: reveal start sample docs/sample.md 
+#    command: reveal start ${project} docs/${project}.md
+    command: reveal start sample docs/sample.md
     ports:
       - "8001:8001"
     volumes:
 #      - ./mkdocs/$project:/docs/$project
       - ./mkdocs/sample:/docs/sample
-  
+
   cron:
     container_name: cron
     build:
@@ -56,13 +56,21 @@ services:
     volumes:
 #      - ./mkdocs/$project:/docs/$project
       - ./mkdocs/sample:/docs/sample
-  
+
   elasticsearch:
     container_name: elasticsearch
     build: ./elasticsearch
     ports:
       - "9200:9200"
       - "9300:9300"
+
+  kibana:
+    container_name: kibana
+    image: kibana
+    links:
+      - elasticsearch
+    ports:
+      - "5601:5601"
 
 
 
