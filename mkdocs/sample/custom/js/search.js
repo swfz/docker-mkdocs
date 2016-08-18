@@ -7,7 +7,7 @@ require([
    "use strict";
 
    var client = new $.es.Client({
-     host: config.esEndpoint,
+     host: config.esEndpoint + ":9200",
      headers: {
        'Accept': 'application/json',
        'Content-Type': 'application/json'

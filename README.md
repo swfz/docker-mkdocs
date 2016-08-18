@@ -24,9 +24,6 @@ HOST_IP=`hostname -I | awk '{print $2}'` docker-compose up [-d]
     - default is `docs/sample.md`
 - elasticsearch
     - for full-text search of article
-- nginx
-    - reverse proxy to elasticsearch
-    - in order to ajax request from browser
 
 ## markdown to elasticsearch
 

@@ -1,16 +1,5 @@
 version: '2'
 services:
-  nginx:
-    container_name: nginx
-    build: ./nginx
-    links:
-      - mkdocs
-      - reveal
-      - elasticsearch
-    ports:
-      - "80:80"
-      - "443:443"
-
   mkdocs:
     container_name: mkdocs
     build:
@@ -64,13 +53,6 @@ services:
       - "9200:9200"
       - "9300:9300"
 
-  kibana:
-    container_name: kibana
-    image: kibana
-    links:
-      - elasticsearch
-    ports:
-      - "5601:5601"
 
 
 

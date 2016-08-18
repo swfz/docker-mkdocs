@@ -1,0 +1,6 @@
+network.host: 0.0.0.0
+http.cors.enabled: true
+http.cors.allow-origin: '*'
+http.cors.max-age: 0
+http.cors.allow-credentials: true
+
